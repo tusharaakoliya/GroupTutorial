@@ -4,7 +4,13 @@
       <ion-back-button defaultHref="/recipies"></ion-back-button>
   </ion-buttons>
     <ion-title>{{ loadedRecipies.title }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteRecipie()">
+        <ion-icon name="trash" slot="icon-only"> </ion-icon>
+      </ion-button>
+      </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -15,7 +21,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
+      <ion-col >
         <h1>{{ loadedRecipies.title}}</h1>
       </ion-col>
     </ion-row>

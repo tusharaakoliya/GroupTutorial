@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Recipie } from '../recipie.model';
 import { RecipiesService } from '../recipies.service';
 
@@ -12,7 +13,11 @@ export class RecipiesDetailsPage implements OnInit {
 
   loadedRecipies: Recipie;
 
-  constructor(private activatedRouter: ActivatedRoute, private recipiesService: RecipiesService) { }
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private recipiesService: RecipiesService,
+    private router: Router,
+    private altController: AlertController) { }
 
   ngOnInit() {
     this.activatedRouter.paramMap.subscribe(paramMap => {
@@ -22,6 +27,29 @@ export class RecipiesDetailsPage implements OnInit {
       }
       const recipieId = paramMap.get('recipieId');
       this.loadedRecipies = this.recipiesService.getRecipie(recipieId);
+    });
+  }
+
+  onDeleteRecipie() {
+    this.altController.create(
+    {
+      header: 'Are you sure?',
+      message: 'Do you really want to delete the recipie?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.recipiesService.deleteRecipie(this.loadedRecipies.id);
+            this.router.navigate(['/recipies']);
+          }
+        }
+      ]
+    }).then(altCont => {
+       altCont.present();
     });
   }
 

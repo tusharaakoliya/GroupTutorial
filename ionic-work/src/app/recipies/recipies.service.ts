@@ -39,4 +39,11 @@ export class RecipiesService {
       }),
     };
   }
+
+  deleteRecipie(recipieId: string) {
+    this.recipies = this.recipies.filter(recipie =>
+      {
+        return recipie.id !== recipieId;
+      }) ;
+  }
 }
