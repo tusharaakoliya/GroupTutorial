@@ -2,31 +2,22 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/recipies"></ion-back-button>
-  </ion-buttons>
+    </ion-buttons>
     <ion-title>{{ loadedRecipies.title }}</ion-title>
     <ion-buttons slot="primary">
       <ion-button (click)="onDeleteRecipie()">
         <ion-icon name="trash" slot="icon-only"> </ion-icon>
       </ion-button>
-      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col size-md="3" offset-md="4.5">
         <ion-img [src]="loadedRecipies.imageUrl"></ion-img>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col >
         <h1>{{ loadedRecipies.title}}</h1>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
         <ion-list>
           <ion-item *ngFor="let ig of loadedRecipies.ingredients">
             {{ ig }}
@@ -35,5 +26,3 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-</ion-content>

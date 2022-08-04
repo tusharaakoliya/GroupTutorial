@@ -16,6 +16,7 @@ export class RecipiesDetailsPage implements OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private recipiesService: RecipiesService,
+
     private router: Router,
     private altController: AlertController) { }
 

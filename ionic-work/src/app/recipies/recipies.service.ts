@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { Recipie } from './recipie.model';
 
@@ -6,26 +7,43 @@ import { Recipie } from './recipie.model';
 })
 export class RecipiesService {
   // make it private to restrict
+
   private recipies: Recipie[] = [
     {
       id: 'r1',
-      title: 'Schitih',
+      title: 'Franch Toast',
       imageUrl:
-        'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80',
-      ingredients: ['peper', 'potato', 'milk'],
+        'assets/images/freanchtoast.jpg',
+      ingredients: ['White Bread', 'Eggs', 'Milk', 'Butter', 'Salt', 'Vanilla and Cinnamon'],
     },
     {
       id: 'r2',
-      title: 'Sandwitch',
+      title: 'The Real Mojito',
       imageUrl:
-        'https://static.onecms.io/wp-content/uploads/sites/44/2022/03/01/cucumber-sandwich.jpg',
-      ingredients: ['peper', 'potato', 'cucumber', 'bread'],
+        'assets/images/realmojito.jpg',
+      ingredients: ['Rum', 'Mint', 'Lime', 'Sugar', 'Club soda'],
     },
+    {
+      id: 'r3',
+      title: 'Banana Bread',
+      imageUrl:
+        'assets/images/bananabread.jpg',
+      ingredients: ['Banana', 'All-purpose flour', 'Baking soda', 'Salt', 'Butter', 'Brown Sugar', 'Eggs'],
+    },
+    {
+      id: 'r4',
+      title: 'Perfact Chicken',
+      imageUrl:
+        'assets/images/chicken.jpg',
+      ingredients: ['Chicken', 'Wine', 'Onions-Garlic', 'Mushroom', 'Butter-Cream', 'Herbs', 'Lemon'],
+    }
   ];
 
   constructor() {}
 
   // ... (spreade operator) will give all the properties like all elements , fields
+
+
   getAllRecipies() {
     return [...this.recipies];
   }
@@ -44,6 +62,6 @@ export class RecipiesService {
     this.recipies = this.recipies.filter(recipie =>
       {
         return recipie.id !== recipieId;
-      }) ;
+      });
   }
 }
