@@ -1,14 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>IONIC</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onRecipiePage()">
+        <ion-icon name="menu" slot="icon-only"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <h1>Hello,Class</h1>
+      <ion-col size-md="4" offset-md="4">
+        <h3>Presented by</h3>
+        <ion-list>
+          <ion-item>Tushar Aakoliya</ion-item>
+          <ion-item>Nikhil Nikhil</ion-item>
+          <ion-item>Riya Patel</ion-item>
+          <ion-item>Harman Kaur</ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Recipe Application</ion-title>
+  </ion-toolbar>
+</ion-footer>

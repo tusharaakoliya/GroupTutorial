@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: IntroPage
+  },{
+    path: 'recipies',
+    loadChildren: () => import('../recipies/recipies.module').then( m => m.RecipiesPageModule)
   }
+
 ];
 
 @NgModule({
